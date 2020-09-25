@@ -15,11 +15,14 @@ class User {
   public $address;
   public $tel;
 
-  public function __construct($name, $lastname, $email, $password) {
+  public function __construct($name, $lastname, $email, $password, $address = "", $tel = "") {
     $this -> name = $name;
     $this -> lastname = $lastname;
     $this -> email = $email;
     $this -> password = $password;
+
+    $this -> address = $address;
+    $this -> tel = $tel;
   }
 
   public function __toString() {
@@ -50,11 +53,11 @@ class User {
 $user1 = $data['user1'];
 $user2 = $data['user2'];
 
-$getUser1 = new User($user1['name'], $user1['lastname'], $user1['email'], $user1['password']);
-$getUser2 = new User($user2['name'], $user2['lastname'], $user2['email'], $user2['password']);
+$getUser1 = new User($user1['name'], $user1['lastname'], $user1['email'], $user1['password'], $user1['address']);
+$getUser2 = new User($user2['name'], $user2['lastname'], $user2['email'], $user2['password'], "", $user2['tel']);
 
-$getUser1 -> address = $user1['address'];
-$getUser2 -> tel = $user2['tel'];
+// $getUser1 -> address = $user1['address'];
+// $getUser2 -> tel = $user2['tel'];
 
 echo $getUser1;
 echo $getUser2;
